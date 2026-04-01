@@ -8,12 +8,9 @@ class Comment
 
     public function __construct(string $dbPath)
     {
-        $isNew = !file_exists($dbPath);
         $this->db = new PDO('sqlite:' . $dbPath);
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        if ($isNew) {
-            $this->migrate();
-        }
+        $this->migrate();
     }
 
     private function migrate(): void
