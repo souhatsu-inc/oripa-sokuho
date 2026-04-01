@@ -8,6 +8,7 @@ company: "株式会社日本トレカセンター"
 slug: "purotan-collab-oripa-sold-out"
 published_at: "2026-02-16T11:00:00+09:00"
 hot: false
+thumbnail_url: "https://prcdn.freetls.fastly.net/release_image/171622/15/171622-15-6d5f50b599fd041413345be765ddfc06-1280x840.png"
 ---
 
 人気YouTuber「ぷろたん」と日本トレカセンターのコラボオリパが2月13日より販売開始され、一部商品は開始わずか3時間で完売する人気ぶりを見せた。

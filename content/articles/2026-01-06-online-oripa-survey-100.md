@@ -8,6 +8,7 @@ company: "合同会社KURABEYA"
 slug: "online-oripa-survey-100"
 published_at: "2026-01-06T09:00:00+09:00"
 hot: false
+thumbnail_url: "https://prcdn.freetls.fastly.net/release_image/175147/1/175147-1-3953da4cb1ac57c9e0158529cc4a8a31-1024x1024.jpg"
 ---
 
 100名を対象にポケモンカードのオンラインオリパ利用実態を調査した結果が公開された。利用率は67%に達した一方、過半数が不信感を抱えていることが明らかになった。

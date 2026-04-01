@@ -8,6 +8,7 @@ company: "アソビビジョン株式会社（福福トレカ）"
 slug: "tcg-purchase-survey"
 published_at: "2026-03-26T10:00:00+09:00"
 hot: false
+thumbnail_url: "https://prcdn.freetls.fastly.net/release_image/179168/1/179168-1-925c42ef410a6bf628234d4f045a0872-722x374.png"
 ---
 
 アソビビジョン株式会社（福福トレカ）が200名のTCGユーザーを対象にアンケート調査を実施し、購入頻度や購入先の傾向を分析した結果レポートを公開した。

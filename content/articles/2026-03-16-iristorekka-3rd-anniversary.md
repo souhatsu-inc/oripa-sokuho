@@ -8,6 +8,7 @@ company: "アクセルマーク株式会社（株式会社crafty）"
 slug: "iristorekka-3rd-anniversary"
 published_at: "2026-03-16T12:00:00+09:00"
 hot: true
+thumbnail_url: "https://prcdn.freetls.fastly.net/release_image/21743/233/21743-233-52dcfccac1ab4bfc563e88026e98e8fd-900x502.jpg"
 ---
 
 オンラインオリパサービス「アイリストレカ」がサービス開始3周年を記念し、3月16日〜30日に6つの特別企画を展開する。

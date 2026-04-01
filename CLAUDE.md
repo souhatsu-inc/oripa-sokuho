@@ -34,12 +34,11 @@ Pencilデザインファイル: `docs/design/oripa-sokuho-design.pen`
 
 ※旧パターン（A〜D）もPencilファイル内に残存
 
-## 技術スタック（想定）
-- Next.js (App Router)
-- Vercel
-- Neon (PostgreSQL)
-- Tailwind CSS
-- Cron Jobs（PRTIMES/X情報収集の自動化）
+## 技術スタック
+- PHP + MySQL（Xserverで運用）
+- Xserver Cron Jobs（PR TIMES記事の自動取得）
+- サムネイル画像はPR TIMESの画像URLを直接参照（Blob保存しない）
+- デプロイ先: Xserver
 
 ## ターゲット
 20〜40代のTCGオリパ利用者（ポケカ・遊戯王中心）

@@ -63,6 +63,12 @@ require __DIR__ . '/templates/header.php';
                 <?= htmlspecialchars($meta['title'] ?? '無題') ?>
             </h1>
 
+            <?php if (!empty($meta['thumbnail_url'])): ?>
+            <div class="article-detail-img">
+                <img src="<?= htmlspecialchars($meta['thumbnail_url']) ?>" alt="<?= htmlspecialchars($meta['title'] ?? '') ?>">
+            </div>
+            <?php endif; ?>
+
             <div class="article-detail-meta">
                 <?= date('Y年m月d日 H:i', strtotime($meta['published_at'] ?? 'now')) ?>
                 カテゴリ：<span class="category-label">

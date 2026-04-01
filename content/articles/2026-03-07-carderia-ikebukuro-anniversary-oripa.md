@@ -8,6 +8,7 @@ company: "アクセルマーク株式会社"
 slug: "carderia-ikebukuro-anniversary-oripa"
 published_at: "2026-03-07T10:00:00+09:00"
 hot: false
+thumbnail_url: "https://prcdn.freetls.fastly.net/release_image/21743/228/21743-228-c8ef9530d7f45afce116d506de2d1ca7-800x419.jpg"
 ---
 
 トレーディングカード専門店「cardéria™池袋店」が1周年記念の第6弾企画として、ポケモンカードとONE PIECEカードを対象にした「Anniversaryオリパ」を発売した。

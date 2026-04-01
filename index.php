@@ -44,6 +44,11 @@ require __DIR__ . '/templates/header.php';
         <div class="headline-cards">
             <?php foreach ($hotArticles as $article): ?>
             <a href="/article/<?= urlencode($article['slug']) ?>/" class="headline-card" style="text-decoration:none;color:inherit;">
+                <?php if (!empty($article['meta']['thumbnail_url'])): ?>
+                <div class="headline-card-img">
+                    <img src="<?= htmlspecialchars($article['meta']['thumbnail_url']) ?>" alt="<?= htmlspecialchars($article['meta']['title'] ?? '') ?>" loading="lazy">
+                </div>
+                <?php endif; ?>
                 <div class="headline-card-body">
                     <div class="headline-card-title">
                         <?= htmlspecialchars($article['meta']['title'] ?? '') ?>
@@ -83,7 +88,11 @@ require __DIR__ . '/templates/header.php';
             ?>
             <div class="article-item">
                 <div class="article-thumb">
-                    <?= mb_substr($catName, 0, 3) ?>
+                    <?php if (!empty($meta['thumbnail_url'])): ?>
+                        <img src="<?= htmlspecialchars($meta['thumbnail_url']) ?>" alt="<?= htmlspecialchars($meta['title'] ?? '') ?>" loading="lazy">
+                    <?php else: ?>
+                        <?= mb_substr($catName, 0, 3) ?>
+                    <?php endif; ?>
                 </div>
                 <div class="article-body">
                     <div class="article-title">

@@ -8,6 +8,7 @@ company: "株式会社日本トレカセンター"
 slug: "nihon-torekka-center-spring-campaign"
 published_at: "2026-03-06T09:00:00+09:00"
 hot: true
+thumbnail_url: "https://prcdn.freetls.fastly.net/release_image/171622/20/171622-20-6ddb130717d205cd7e6aff809fe2a33e-2400x1850.jpg"
 ---
 
 日本トレカセンターが3月6日〜12日の期間限定で「Blooming Step Gauge」キャンペーンを開催。コインチャージ額に応じてステップアップ形式で景品が付与される。
