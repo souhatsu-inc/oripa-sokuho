@@ -35,8 +35,8 @@
             'other' => 'tab-other',
         ];
         $tabs = ['' => ['label' => '総合', 'class' => '']];
-        foreach (Content::CATEGORY_NAMES as $slug => $label) {
-            $tabs[$slug] = ['label' => $slug === 'onepiece' ? 'ワンピ' : $label, 'class' => $tabClasses[$slug] ?? ''];
+        foreach (Content::CATEGORY_NAMES as $catKey => $label) {
+            $tabs[$catKey] = ['label' => $catKey === 'onepiece' ? 'ワンピ' : $label, 'class' => $tabClasses[$catKey] ?? ''];
         }
         foreach ($tabs as $tabSlug => $tab): ?>
             <a href="<?= $tabSlug ? "/?category=$tabSlug" : '/' ?>"
