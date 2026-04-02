@@ -24,10 +24,14 @@ RewriteRule ^article/([a-zA-Z0-9_-]+)/?$ article.php?slug=$1 [L,QSA]
 # /comment/post → comment-post.php
 RewriteRule ^comment/post/?$ comment-post.php [L,QSA]
 
+# カスタム404
+ErrorDocument 404 /404.php
+
 # ━━━━━━━━━━━━━━━━━━━━
 # セキュリティヘッダー
 # ━━━━━━━━━━━━━━━━━━━━
 <IfModule mod_headers.c>
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"

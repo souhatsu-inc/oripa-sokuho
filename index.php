@@ -59,10 +59,10 @@ $pageTitle = $currentCategory
 $baseUrl = 'https://oripanews.com';
 if ($currentCategory) {
     $catLabel = $categoryNames[$currentCategory] ?? 'その他';
-    $metaDescription = "{$catLabel}のTCGオリパ最新情報一覧。ポケカ・遊戯王・ワンピースのオリパ速報をまとめてお届けします。";
+    $metaDescription = "{$catLabel}のTCGオリパ最新情報一覧。オリパ速報をまとめてお届け。";
     $canonical = "{$baseUrl}/?category=" . urlencode($currentCategory);
 } else {
-    $metaDescription = 'TCGオリパの最新情報を速報配信。ポケカ・遊戯王・ワンピースのオリパ情報をなんJ風にまとめてお届けするニュースサイトです。';
+    $metaDescription = 'TCGオリパの最新情報を速報配信。ポケカ・遊戯王・ワンピースのオリパ情報をまとめてお届け。';
     $canonical = "{$baseUrl}/";
 }
 
@@ -76,6 +76,16 @@ $jsonLd = [
         'description' => 'TCGオリパの最新情報を速報配信するニュースサイト',
     ],
 ];
+if ($currentCategory) {
+    $jsonLd[] = [
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => [
+            ['@type' => 'ListItem', 'position' => 1, 'name' => 'トップ', 'item' => "{$baseUrl}/"],
+            ['@type' => 'ListItem', 'position' => 2, 'name' => $catLabel],
+        ],
+    ];
+}
 
 require __DIR__ . '/templates/header.php';
 ?>
@@ -84,15 +94,22 @@ require __DIR__ . '/templates/header.php';
 
 <div class="container">
 
+    <?php if ($currentCategory): ?>
+    <nav class="breadcrumb">
+        <a href="/">トップ</a> &gt;
+        <span><?= htmlspecialchars($catLabel) ?></span>
+    </nav>
+    <?php endif; ?>
+
     <!-- ヘッドラインカード -->
     <?php if (!$currentCategory && $hotArticles): ?>
     <div class="headline-section">
         <div class="headline-cards">
-            <?php foreach ($hotArticles as $article): ?>
+            <?php foreach ($hotArticles as $hi => $article): ?>
             <a href="/article/<?= urlencode($article['slug']) ?>/" class="headline-card" style="text-decoration:none;color:inherit;">
                 <div class="headline-card-img">
                     <?php if (!empty($article['meta']['thumbnail_url'])): ?>
-                    <img src="<?= htmlspecialchars($article['meta']['thumbnail_url']) ?>" alt="<?= htmlspecialchars($article['meta']['title'] ?? '') ?>" loading="lazy" width="320" height="180">
+                    <img src="<?= htmlspecialchars($article['meta']['thumbnail_url']) ?>" alt="<?= htmlspecialchars($article['meta']['title'] ?? '') ?>" width="320" height="180" <?= $hi === 0 ? 'fetchpriority="high"' : 'loading="lazy"' ?>>
                     <?php else: ?>
                     <span class="headline-card-placeholder"><?= htmlspecialchars(mb_substr($article['meta']['tag'] ?? '速報', 0, 3)) ?></span>
                     <?php endif; ?>

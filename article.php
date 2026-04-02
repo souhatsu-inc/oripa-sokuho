@@ -13,15 +13,13 @@ $pageViewDb = new PageView(__DIR__ . '/data/pageviews.db');
 $slug = $_GET['slug'] ?? '';
 
 if (!Content::isValidSlug($slug)) {
-    http_response_code(404);
-    echo '404 Not Found';
+    require __DIR__ . '/404.php';
     exit;
 }
 
 $article = $content->getArticle($slug);
 if (!$article) {
-    http_response_code(404);
-    echo '404 Not Found';
+    require __DIR__ . '/404.php';
     exit;
 }
 
@@ -34,7 +32,7 @@ $categoryNames = Content::CATEGORY_NAMES;
 // SEOメタデータ
 $baseUrl = 'https://oripanews.com';
 $canonical = "{$baseUrl}/article/{$slug}/";
-$excerpt = mb_substr(strip_tags($article['html']), 0, 120);
+$excerpt = mb_substr(strip_tags($article['html']), 0, 80);
 $metaDescription = $excerpt . '…';
 $ogType = 'article';
 $ogTitle = $pageTitle;
@@ -128,7 +126,7 @@ require __DIR__ . '/templates/header.php';
 
             <?php if (!empty($meta['thumbnail_url'])): ?>
             <div class="article-detail-img">
-                <img src="<?= htmlspecialchars($meta['thumbnail_url']) ?>" alt="<?= htmlspecialchars($meta['title'] ?? '') ?>">
+                <img src="<?= htmlspecialchars($meta['thumbnail_url']) ?>" alt="<?= htmlspecialchars($meta['title'] ?? '') ?>" width="700" height="400" fetchpriority="high">
             </div>
             <?php endif; ?>
 

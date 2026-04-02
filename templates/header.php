@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle ?? 'オリパ速報') ?> - オリパ速報＠TCGオリパまとめ</title>
+    <title><?= htmlspecialchars($pageTitle ?? 'オリパ速報') ?> | オリパ速報</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<?php if (!empty($noindex)): ?>
+    <meta name="robots" content="noindex, follow">
+<?php endif; ?>
 <?php if (!empty($metaDescription)): ?>
     <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
 <?php endif; ?>
@@ -34,6 +37,15 @@
 
     <link rel="stylesheet" href="/css/style.css">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZE63FN81K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HZE63FN81K');
+    </script>
+
 <?php if (!empty($jsonLd)): ?>
 <?php foreach ($jsonLd as $ld): ?>
     <script type="application/ld+json"><?= json_encode($ld, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) ?></script>
@@ -45,7 +57,7 @@
 <!-- ヘッダー -->
 <div class="header">
     <div class="header-inner">
-        <h1><a href="/">◆ オリパ速報 ◆</a></h1>
+        <div class="site-title"><a href="/">◆ オリパ速報 ◆</a></div>
         <span class="header-sub">TCGオリパまとめ速報</span>
     </div>
 </div>

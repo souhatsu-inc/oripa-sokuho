@@ -36,12 +36,13 @@ a:hover { text-decoration: underline; }
     align-items: center;
     justify-content: space-between;
 }
-.header h1 {
+.header .site-title {
     font-size: 22px;
+    font-weight: 700;
     letter-spacing: 2px;
 }
-.header h1 a { color: #fff; }
-.header h1 a:hover { text-decoration: none; }
+.header .site-title a { color: #fff; }
+.header .site-title a:hover { text-decoration: none; }
 .header-sub {
     font-size: 11px;
     opacity: 0.8;
@@ -449,6 +450,11 @@ a:hover { text-decoration: underline; }
     margin: 24px auto 40px;
     text-align: center;
     padding: 0 8px;
+}
+.footer-about {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 8px;
 }
 .footer-text {
     font-size: 11px;
