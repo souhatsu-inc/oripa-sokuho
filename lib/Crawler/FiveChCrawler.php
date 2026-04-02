@@ -56,6 +56,7 @@ class FiveChCrawler
 
                 $matched = $this->filterThreads($threads);
                 $found += count($matched);
+                $fetchedAt = (new \DateTimeImmutable('now', new \DateTimeZone('Asia/Tokyo')))->format('Y-m-d H:i:s');
 
                 foreach ($matched as $thread) {
                     $threadUrl = "https://{$server}.5ch.net/test/read.cgi/{$board}/{$thread['id']}/";
@@ -68,7 +69,7 @@ class FiveChCrawler
                         'snippet' => $snippet,
                         'thumbnail_url' => null,
                         'board' => $boardName,
-                        'fetched_at' => (new \DateTimeImmutable('now', new \DateTimeZone('Asia/Tokyo')))->format('Y-m-d H:i:s'),
+                        'fetched_at' => $fetchedAt,
                         'published_at' => null,
                     ]);
 
@@ -156,8 +157,10 @@ class FiveChCrawler
         $lines = [];
         if (preg_match_all('/<dd>\s*(.+?)\s*<\/dd>/s', $body, $matches)) {
             foreach ($matches[1] as $dd) {
-                $text = strip_tags(str_replace('<br>', "\n", $dd));
-                $text = trim(html_entity_decode($text, ENT_QUOTES, 'UTF-8'));
+                $text = str_replace('<br>', "\n", $dd);
+                $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
+                $text = strip_tags($text);
+                $text = trim($text);
                 if ($text !== '') {
                     $lines[] = $text;
                 }

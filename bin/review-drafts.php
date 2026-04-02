@@ -104,12 +104,20 @@ if (isset($options['publish'])) {
     $tag = '速報';
     $publishedAt = $draft['published_at'] ?? (new DateTimeImmutable('now', new DateTimeZone('Asia/Tokyo')))->format('c');
 
+    $sanitizeYaml = fn(string $s): string => str_replace(
+        ['\\', '"', "\n", "\r"],
+        ['\\\\', '\\"', ' ', ''],
+        $s
+    );
+    $safeTitle = $sanitizeYaml($draft['title']);
+    $safeUrl = $sanitizeYaml($draft['source_url']);
+
     $frontmatter = <<<YAML
 ---
-title: "{$draft['title']}"
+title: "{$safeTitle}"
 tag: "{$tag}"
 category: "{$category}"
-source_url: "{$draft['source_url']}"
+source_url: "{$safeUrl}"
 source_name: "{$sourceName}"
 thumbnail_url: ""
 slug: "{$slug}"
