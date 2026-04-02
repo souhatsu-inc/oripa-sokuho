@@ -7,7 +7,7 @@
                 <span class="sp-ranking-num"><?= $i + 1 ?></span>
                 <div class="sp-ranking-thumb">
                     <?php if (!empty($r['meta']['thumbnail_url'])): ?>
-                    <img src="<?= htmlspecialchars($r['meta']['thumbnail_url']) ?>" alt="" loading="lazy">
+                    <img src="<?= htmlspecialchars($r['meta']['thumbnail_url']) ?>" alt="<?= htmlspecialchars($r['meta']['title'] ?? '') ?>" loading="lazy" width="60" height="40">
                     <?php endif; ?>
                 </div>
                 <span class="sp-ranking-title"><?= htmlspecialchars($r['meta']['title'] ?? '') ?></span>

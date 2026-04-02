@@ -4,7 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($pageTitle ?? 'オリパ速報') ?> - オリパ速報＠TCGオリパまとめ</title>
+<?php if (!empty($metaDescription)): ?>
+    <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
+<?php endif; ?>
+<?php if (!empty($canonical)): ?>
+    <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
+<?php endif; ?>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle ?? $pageTitle ?? 'オリパ速報') ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($ogDescription ?? $metaDescription ?? 'TCGオリパの最新情報を速報配信。ポケカ・遊戯王・ワンピースのオリパ情報をまとめています。') ?>">
+    <meta property="og:type" content="<?= htmlspecialchars($ogType ?? 'website') ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($canonical ?? 'https://oripanews.com/') ?>">
+    <meta property="og:site_name" content="オリパ速報">
+<?php if (!empty($ogImage)): ?>
+    <meta property="og:image" content="<?= htmlspecialchars($ogImage) ?>">
+<?php endif; ?>
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="<?= !empty($ogImage) ? 'summary_large_image' : 'summary' ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($ogTitle ?? $pageTitle ?? 'オリパ速報') ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($ogDescription ?? $metaDescription ?? 'TCGオリパの最新情報を速報配信。') ?>">
+<?php if (!empty($ogImage)): ?>
+    <meta name="twitter:image" content="<?= htmlspecialchars($ogImage) ?>">
+<?php endif; ?>
+
     <link rel="stylesheet" href="/css/style.css">
+
+<?php if (!empty($jsonLd)): ?>
+<?php foreach ($jsonLd as $ld): ?>
+    <script type="application/ld+json"><?= json_encode($ld, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) ?></script>
+<?php endforeach; ?>
+<?php endif; ?>
 </head>
 <body>
 

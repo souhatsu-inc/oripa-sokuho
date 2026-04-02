@@ -31,6 +31,40 @@ $currentCategory = $meta['category'] ?? '';
 
 $categoryNames = Content::CATEGORY_NAMES;
 
+// SEOメタデータ
+$baseUrl = 'https://oripanews.com';
+$canonical = "{$baseUrl}/article/{$slug}/";
+$excerpt = mb_substr(strip_tags($article['html']), 0, 120);
+$metaDescription = $excerpt . '…';
+$ogType = 'article';
+$ogTitle = $pageTitle;
+$ogDescription = $metaDescription;
+$ogImage = $meta['thumbnail_url'] ?? '';
+
+$catLabel = $categoryNames[$currentCategory] ?? 'その他';
+$jsonLd = [
+    [
+        '@context' => 'https://schema.org',
+        '@type' => 'Article',
+        'headline' => $meta['title'] ?? '',
+        'datePublished' => date('c', strtotime($meta['published_at'] ?? 'now')),
+        'author' => ['@type' => 'Organization', 'name' => 'オリパ速報'],
+        'publisher' => ['@type' => 'Organization', 'name' => 'オリパ速報'],
+        'mainEntityOfPage' => $canonical,
+        'image' => $meta['thumbnail_url'] ?? '',
+        'articleSection' => $catLabel,
+    ],
+    [
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => [
+            ['@type' => 'ListItem', 'position' => 1, 'name' => 'トップ', 'item' => "{$baseUrl}/"],
+            ['@type' => 'ListItem', 'position' => 2, 'name' => $catLabel, 'item' => "{$baseUrl}/?category=" . urlencode($currentCategory)],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => $pageTitle],
+        ],
+    ],
+];
+
 // コメント取得
 $comments = $commentDb->getByArticle($slug);
 $commentCount = count($comments);
@@ -78,9 +112,11 @@ require __DIR__ . '/templates/header.php';
 
 <div class="container">
     <main>
-        <div class="back-link">
-            <a href="/">トップに戻る</a>
-        </div>
+        <nav class="breadcrumb">
+            <a href="/">トップ</a> &gt;
+            <a href="/?category=<?= urlencode($currentCategory) ?>"><?= htmlspecialchars($catLabel) ?></a> &gt;
+            <span><?= htmlspecialchars(mb_substr($pageTitle, 0, 40)) ?></span>
+        </nav>
 
         <div class="article-detail">
             <h1>
@@ -116,7 +152,7 @@ require __DIR__ . '/templates/header.php';
             <?php if (!empty($meta['source_url'])): ?>
             <div class="source-link">
                 ━━━━━━━━━━━━━━━━<br>
-                ソース：<a href="<?= htmlspecialchars($meta['source_url']) ?>" target="_blank" rel="noopener">
+                ソース：<a href="<?= htmlspecialchars($meta['source_url']) ?>" target="_blank" rel="noopener nofollow">
                     <?= htmlspecialchars($meta['source_name'] ?? '元記事') ?>で読む →
                 </a>
             </div>

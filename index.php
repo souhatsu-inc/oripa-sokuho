@@ -55,6 +55,28 @@ $pageTitle = $currentCategory
     ? ($categoryNames[$currentCategory] ?? '') . 'の記事一覧'
     : 'トップ';
 
+// SEOメタデータ
+$baseUrl = 'https://oripanews.com';
+if ($currentCategory) {
+    $catLabel = $categoryNames[$currentCategory] ?? 'その他';
+    $metaDescription = "{$catLabel}のTCGオリパ最新情報一覧。ポケカ・遊戯王・ワンピースのオリパ速報をまとめてお届けします。";
+    $canonical = "{$baseUrl}/?category=" . urlencode($currentCategory);
+} else {
+    $metaDescription = 'TCGオリパの最新情報を速報配信。ポケカ・遊戯王・ワンピースのオリパ情報をなんJ風にまとめてお届けするニュースサイトです。';
+    $canonical = "{$baseUrl}/";
+}
+
+$ogType = 'website';
+$jsonLd = [
+    [
+        '@context' => 'https://schema.org',
+        '@type' => 'WebSite',
+        'name' => 'オリパ速報',
+        'url' => "{$baseUrl}/",
+        'description' => 'TCGオリパの最新情報を速報配信するニュースサイト',
+    ],
+];
+
 require __DIR__ . '/templates/header.php';
 ?>
 
@@ -70,7 +92,7 @@ require __DIR__ . '/templates/header.php';
             <a href="/article/<?= urlencode($article['slug']) ?>/" class="headline-card" style="text-decoration:none;color:inherit;">
                 <div class="headline-card-img">
                     <?php if (!empty($article['meta']['thumbnail_url'])): ?>
-                    <img src="<?= htmlspecialchars($article['meta']['thumbnail_url']) ?>" alt="<?= htmlspecialchars($article['meta']['title'] ?? '') ?>" loading="lazy">
+                    <img src="<?= htmlspecialchars($article['meta']['thumbnail_url']) ?>" alt="<?= htmlspecialchars($article['meta']['title'] ?? '') ?>" loading="lazy" width="320" height="180">
                     <?php else: ?>
                     <span class="headline-card-placeholder"><?= htmlspecialchars(mb_substr($article['meta']['tag'] ?? '速報', 0, 3)) ?></span>
                     <?php endif; ?>
@@ -115,7 +137,7 @@ require __DIR__ . '/templates/header.php';
             <div class="article-item">
                 <div class="article-thumb">
                     <?php if (!empty($meta['thumbnail_url'])): ?>
-                        <img src="<?= htmlspecialchars($meta['thumbnail_url']) ?>" alt="<?= htmlspecialchars($meta['title'] ?? '') ?>" loading="lazy">
+                        <img src="<?= htmlspecialchars($meta['thumbnail_url']) ?>" alt="<?= htmlspecialchars($meta['title'] ?? '') ?>" loading="lazy" width="120" height="80">
                     <?php else: ?>
                         <?= mb_substr($catName, 0, 3) ?>
                     <?php endif; ?>

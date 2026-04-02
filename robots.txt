@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /bin/
+Disallow: /vendor/
+Disallow: /data/
+Disallow: /lib/
+Disallow: /templates/
+Disallow: /content/
+Disallow: /comment/post
+
+Sitemap: https://oripanews.com/sitemap.xml
