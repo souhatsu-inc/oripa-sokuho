@@ -49,6 +49,8 @@ $related = array_slice(
 require __DIR__ . '/templates/header.php';
 ?>
 
+<?php $rankingArticles = $content->getAllArticles(); require __DIR__ . '/templates/sp-ranking.php'; ?>
+
 <div class="container">
     <main>
         <div class="back-link">
@@ -160,7 +162,7 @@ require __DIR__ . '/templates/header.php';
                     <ul class="ranking-list">
                         <?php foreach ($related as $r): ?>
                         <li>
-                            <a href="/article/<?= urlencode($r['slug']) ?>/">
+                            <a href="/article/<?= urlencode($r['slug']) ?>/" target="_blank" rel="noopener">
                                 <?= htmlspecialchars($r['meta']['title'] ?? '') ?>
                             </a>
                         </li>

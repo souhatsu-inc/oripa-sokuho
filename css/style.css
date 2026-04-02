@@ -288,27 +288,48 @@ a:hover { text-decoration: underline; }
     padding: 8px 10px;
 }
 
-/* --- Ranking --- */
-.ranking-list {
-    list-style: none;
-    counter-reset: rank;
+/* --- Ranking Cards --- */
+.ranking-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
-.ranking-list li {
-    counter-increment: rank;
-    padding: 6px 0;
-    border-bottom: 1px dotted #ccc;
-    font-size: 12px;
-    line-height: 1.4;
+.ranking-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 2px solid #1a1a1a;
 }
-.ranking-list li:last-child { border-bottom: none; }
-.ranking-list li::before {
-    content: counter(rank) ".";
+.ranking-card:last-child {
+    border-bottom: none;
+}
+.ranking-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.ranking-card-placeholder {
+    background: #2a2a2a;
+}
+.ranking-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 10px 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+}
+.ranking-card-title {
+    font-size: 13px;
     font-weight: bold;
-    color: #8b1a2b;
-    margin-right: 6px;
-}
-.ranking-list li:nth-child(-n+3)::before {
-    color: #e67e22;
+    line-height: 1.4;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
 /* --- Category Count --- */
@@ -621,8 +642,76 @@ a:hover { text-decoration: underline; }
     background: #a52035;
 }
 
+/* --- SP Ranking (モバイル人気記事) --- */
+.sp-ranking {
+    display: none;
+}
+.sp-ranking-header {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+.sp-ranking-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+.sp-ranking-item {
+    border-bottom: 1px solid #eee;
+}
+.sp-ranking-item:last-child {
+    border-bottom: none;
+}
+.sp-ranking-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #333;
+    gap: 10px;
+}
+.sp-ranking-num {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4a90d9;
+    min-width: 18px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.sp-ranking-thumb {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #eee;
+}
+.sp-ranking-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.sp-ranking-title {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.sp-ranking-arrow {
+    font-size: 18px;
+    color: #ccc;
+    flex-shrink: 0;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
+    .sp-ranking {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
     .container {
         grid-template-columns: 1fr;
     }

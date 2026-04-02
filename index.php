@@ -36,6 +36,8 @@ $pageTitle = $currentCategory
 require __DIR__ . '/templates/header.php';
 ?>
 
+<?php $rankingArticles = $allArticles; require __DIR__ . '/templates/sp-ranking.php'; ?>
+
 <div class="container">
 
     <!-- ヘッドラインカード -->

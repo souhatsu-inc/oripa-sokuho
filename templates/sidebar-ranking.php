@@ -1,14 +1,17 @@
 <div class="sidebar-box">
     <div class="sidebar-box-header">◆ 勢いランキング</div>
-    <div class="sidebar-box-body">
-        <ol class="ranking-list">
-            <?php foreach (array_slice($rankingArticles, 0, 5) as $r): ?>
-            <li>
-                <a href="/article/<?= urlencode($r['slug']) ?>/">
-                    <?= htmlspecialchars(mb_substr($r['meta']['title'] ?? '', 0, 30)) ?>
-                </a>
-            </li>
-            <?php endforeach; ?>
-        </ol>
+    <div class="ranking-cards">
+        <?php foreach (array_slice($rankingArticles, 0, 5) as $r): ?>
+        <a href="/article/<?= urlencode($r['slug']) ?>/" class="ranking-card" target="_blank" rel="noopener">
+            <?php if (!empty($r['meta']['thumbnail_url'])): ?>
+            <img src="<?= htmlspecialchars($r['meta']['thumbnail_url']) ?>" alt="" loading="lazy" class="ranking-card-img">
+            <?php else: ?>
+            <div class="ranking-card-img ranking-card-placeholder"></div>
+            <?php endif; ?>
+            <div class="ranking-card-overlay">
+                <span class="ranking-card-title"><?= htmlspecialchars($r['meta']['title'] ?? '') ?></span>
+            </div>
+        </a>
+        <?php endforeach; ?>
     </div>
 </div>
