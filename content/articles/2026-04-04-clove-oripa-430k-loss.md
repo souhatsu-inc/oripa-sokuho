@@ -25,11 +25,9 @@ thumbnail_url: "https://prcdn.freetls.fastly.net/release_image/59394/7/59394-7-d
 
 <div class="section-label">■ 炎上の発端となったX投稿</div>
 
-霞うた氏はXで以下のように報告し、これが大拡散された。
+霞うた氏はXで検証結果を報告し、これが大拡散された。
 
-<blockquote class="twitter-tweet"><a href="https://x.com/kasumiuta_ch/status/1586163684782768128"></a></blockquote>
-
-※元動画（[YouTube](https://youtu.be/p4pxi7kHPX8)）は現在非公開となっている。
+※元動画（[YouTube](https://youtu.be/p4pxi7kHPX8)）は現在非公開となっている。元ツイートも現在は削除されている。
 
 ## Cloveオリパの構造
 確率0.1%ということは、統計的には1口あたりの当選期待値が極めて低い。43万円分で860口を回しても当選しないのは確率的にはあり得る範囲だが、ユーザー体験としては「43万円でゴミしか出ない」というインパクトが強く、「そもそもこの確率設定は適正なのか」という議論を呼んでいる。
