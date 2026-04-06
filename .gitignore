@@ -3,3 +3,4 @@ data/pageviews.db
 .DS_Store
 vendor/
 .claude/
+config/twitter.php
