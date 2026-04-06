@@ -106,6 +106,22 @@
             "thumbnail_url": "https://prcdn.freetls.fastly.net/release_image/166478/1/166478-1-5ef04832365470e76466e6bfbbcacd78-800x400.png",
             "scheduled_at": "2026-04-10T22:00:00+09:00",
             "status": "pending"
+        },
+        {
+            "slug": "dopa-jackpot-ranking-system",
+            "text": "【速報】DOPA!に「ジャックポット」と「ランキング」が実装、完全にソシャゲと化す\n\nガチャ回すほどゲージ貯まって特別チケットGET→4/11配布、ランキングは4/7から毎日・毎週・毎月で順位競争\n\nもうオリパじゃなくてソシャゲ運営やろこれｗｗｗ\n\n#トレカ #オリパ",
+            "reply_text": "▼ 詳細はこちら\nhttps://oripanews.com/article/dopa-jackpot-ranking-system/",
+            "thumbnail_url": "https://prcdn.freetls.fastly.net/release_image/168482/26/168482-26-8149dadea7f2bb5d2a0b9a157d147254-1080x1080.jpg",
+            "scheduled_at": "2026-04-11T01:00:00+09:00",
+            "status": "pending"
+        },
+        {
+            "slug": "dopa-diamond-rank-monthly-100k",
+            "text": "【悲報】DOPA!のダイヤモンドランク、昇格条件に「月10万円課金」が追加されてて草ｗｗｗ\n\n累計60〜80万円のゲージMAX＋毎月10万維持しないとランクダウン、特典は+5%ボーナス（月10万で5000円分）\n\n冷静に計算したら誰が得するんやこれ…\n\n#トレカ #オリパ",
+            "reply_text": "▼ 詳細はこちら\nhttps://oripanews.com/article/dopa-diamond-rank-monthly-100k/",
+            "thumbnail_url": "https://prcdn.freetls.fastly.net/release_image/168482/26/168482-26-9c24930bb184009e188e8d1bec171f40-2201x601.png",
+            "scheduled_at": "2026-04-11T22:00:00+09:00",
+            "status": "pending"
         }
     ]
 }
