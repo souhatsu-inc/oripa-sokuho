@@ -134,6 +134,50 @@ YAML;
 
     echo "記事を生成しました: {$filename}\n";
     echo "※ 本文の編集が必要です: {$filepath}\n";
+
+    // X (Twitter) に自動投稿
+    $twitterConfigFile = __DIR__ . '/../config/twitter.php';
+    if (file_exists($twitterConfigFile)) {
+        try {
+            $twitterConfig = require $twitterConfigFile;
+            $twitter = new \App\TwitterClient($twitterConfig);
+
+            $articleUrl = "https://oripanews.com/article/{$slug}/";
+            $categoryTag = match ($category) {
+                'pokeka' => '#ポケカ',
+                'yugioh' => '#遊戯王',
+                'onepiece' => '#ワンピース',
+                default => '#トレカ',
+            };
+
+            // 1投稿目：サムネ + ヒキのある文章（リンクなし）
+            $mainText = $draft['title'] . "\n\n" . $categoryTag . ' #オリパ';
+
+            // リプ：リンク
+            $replyText = "▼ 詳細はこちら\n{$articleUrl}";
+
+            $thumbnailUrl = ''; // ドラフトにはサムネがないので空
+            $result = $twitter->postArticle($mainText, $replyText, $thumbnailUrl);
+
+            // 投稿管理JSONに記録
+            $xPostsFile = __DIR__ . '/../data/x-posts.json';
+            $xData = file_exists($xPostsFile) ? json_decode(file_get_contents($xPostsFile), true) : ['posts' => []];
+            $xData['posts'][] = [
+                'slug' => $slug,
+                'tweet_id' => $result['tweet_id'],
+                'reply_id' => $result['reply_id'],
+                'text' => $mainText,
+                'reply_text' => $replyText,
+                'posted_at' => (new DateTimeImmutable('now', new DateTimeZone('Asia/Tokyo')))->format('c'),
+            ];
+            file_put_contents($xPostsFile, json_encode($xData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n");
+
+            echo "X投稿完了: https://x.com/i/status/{$result['tweet_id']}\n";
+        } catch (\Throwable $e) {
+            echo "X投稿エラー（記事生成は成功）: {$e->getMessage()}\n";
+        }
+    }
+
     exit(0);
 }
 
