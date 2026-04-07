@@ -836,8 +836,29 @@ a:hover { text-decoration: underline; }
     color: #666;
     margin: 0 0 20px;
 }
+.campaign-shortcuts {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.campaign-shortcut {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #8b1a2b;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #6b1020;
+}
+.campaign-shortcut:hover {
+    background: #e67e22;
+    border-color: #cf6d17;
+}
 .campaign-section {
     margin-bottom: 32px;
+    scroll-margin-top: 16px;
 }
 .campaign-section-title {
     font-size: 16px;

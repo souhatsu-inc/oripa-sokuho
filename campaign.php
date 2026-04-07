@@ -57,6 +57,12 @@ require __DIR__ . '/templates/header.php';
             <h1 class="campaign-title">◆ プレキャン・プレゼント企画まとめ ◆</h1>
             <p class="campaign-desc">X（旧Twitter）上のプレゼントキャンペーン投稿を自動収集しています（直近7日間・1時間ごと更新）</p>
 
+            <nav class="campaign-shortcuts">
+                <?php foreach ($categories as $slug => $cat): ?>
+                    <a href="#<?= $slug ?>" class="campaign-shortcut"><?= htmlspecialchars($cat['label']) ?>（<?= count($results[$slug]['tweets']) ?>件）</a>
+                <?php endforeach; ?>
+            </nav>
+
             <?php foreach ($categories as $slug => $cat): ?>
                 <section class="campaign-section" id="<?= $slug ?>">
                     <h2 class="campaign-section-title">■ <?= htmlspecialchars($cat['label']) ?></h2>
