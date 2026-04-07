@@ -1,6 +1,8 @@
 data/comments.db
 data/pageviews.db
 data/cache/
+data/campaign/
+data/campaign-refresh.log
 .DS_Store
 vendor/
 .claude/

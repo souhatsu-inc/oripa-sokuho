@@ -18,18 +18,24 @@ $categories = [
 $currentCat = $_GET['cat'] ?? '';
 $isCategory = isset($categories[$currentCat]);
 
-// カテゴリページの場合のみAPI検索
+// カテゴリページの場合、永続ストアから読み込み（なければAPI直接取得にフォールバック）
 $tweets = [];
 $error = '';
 if ($isCategory) {
-    $xSearch = new XSearch($twitterConfig);
-    try {
-        $result = $xSearch->searchCampaignTweets($categories[$currentCat]['keyword'], 20);
-        foreach ($result['tweets'] as $tweet) {
-            $tweets[] = XSearch::parseTweetData($tweet);
+    $dataFile = __DIR__ . "/data/campaign/{$currentCat}.json";
+    if (file_exists($dataFile)) {
+        $tweets = json_decode(file_get_contents($dataFile), true) ?? [];
+    } else {
+        // 永続ストアがまだない場合はAPIから直接取得
+        $xSearch = new XSearch($twitterConfig);
+        try {
+            $result = $xSearch->searchCampaignTweets($categories[$currentCat]['keyword'], 20);
+            foreach ($result['tweets'] as $tweet) {
+                $tweets[] = XSearch::parseTweetData($tweet);
+            }
+        } catch (\Throwable $e) {
+            $error = $e->getMessage();
         }
-    } catch (\Throwable $e) {
-        $error = $e->getMessage();
     }
 }
 
