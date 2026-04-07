@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/lib/Content.php';
 require_once __DIR__ . '/lib/XSearch.php';
 
 use App\XSearch;
