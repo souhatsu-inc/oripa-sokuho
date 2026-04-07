@@ -879,6 +879,35 @@ a:hover { text-decoration: underline; }
 .campaign-tweet-item blockquote {
     margin: 0;
 }
+.campaign-hidden {
+    display: none;
+}
+.campaign-tweet-placeholder {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    background: #f9f9f5;
+    border: 1px dashed #ccc;
+}
+.campaign-more-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0 0;
+    background: #f5f5f0;
+    border: 2px solid #8b1a2b;
+    color: #8b1a2b;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'IBM Plex Mono', monospace;
+    cursor: pointer;
+    text-align: center;
+}
+.campaign-more-btn:hover {
+    background: #8b1a2b;
+    color: #fff;
+}
 .campaign-error {
     color: #c0392b;
     font-size: 13px;

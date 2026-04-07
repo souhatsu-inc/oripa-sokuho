@@ -73,16 +73,21 @@ require __DIR__ . '/templates/header.php';
                         <p class="campaign-empty">※ 該当するプレキャン投稿が見つかりませんでした</p>
                     <?php else: ?>
                         <div class="campaign-tweets">
-                            <?php foreach ($results[$slug]['tweets'] as $tweet): ?>
-                                <div class="campaign-tweet-item">
-                                    <blockquote class="twitter-tweet">
-                                        <p><?= htmlspecialchars(mb_substr($tweet['text'], 0, 140)) ?></p>
-                                        &mdash; <?= htmlspecialchars($tweet['name']) ?> (@<?= htmlspecialchars($tweet['username']) ?>)
-                                        <a href="https://x.com/<?= htmlspecialchars($tweet['username']) ?>/status/<?= htmlspecialchars($tweet['id']) ?>"><?= date('Y年n月j日', strtotime($tweet['created_at'])) ?></a>
-                                    </blockquote>
+                            <?php foreach ($results[$slug]['tweets'] as $i => $tweet): ?>
+                                <div class="campaign-tweet-item<?= $i >= 4 ? ' campaign-hidden' : '' ?>"
+                                     data-tweet-id="<?= htmlspecialchars($tweet['id']) ?>"
+                                     data-tweet-username="<?= htmlspecialchars($tweet['username']) ?>"
+                                     data-tweet-name="<?= htmlspecialchars($tweet['name']) ?>"
+                                     data-tweet-text="<?= htmlspecialchars(mb_substr($tweet['text'], 0, 140)) ?>"
+                                     data-tweet-date="<?= date('Y年n月j日', strtotime($tweet['created_at'])) ?>"
+                                     data-tweet-url="https://x.com/<?= htmlspecialchars($tweet['username']) ?>/status/<?= htmlspecialchars($tweet['id']) ?>">
+                                    <div class="campaign-tweet-placeholder">読み込み中...</div>
                                 </div>
                             <?php endforeach; ?>
                         </div>
+                        <?php if (count($results[$slug]['tweets']) > 4): ?>
+                            <button class="campaign-more-btn" data-target="<?= $slug ?>">▼ もっと見る（残り<?= count($results[$slug]['tweets']) - 4 ?>件）</button>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </section>
             <?php endforeach; ?>
@@ -110,5 +115,64 @@ require __DIR__ . '/templates/header.php';
         </div>
     </aside>
 </div>
+
+<script>
+(function() {
+    // IntersectionObserverで遅延レンダリング
+    function renderTweet(item) {
+        if (item.dataset.rendered) return;
+        item.dataset.rendered = '1';
+
+        var bq = document.createElement('blockquote');
+        bq.className = 'twitter-tweet';
+
+        var p = document.createElement('p');
+        p.textContent = item.dataset.tweetText;
+        bq.appendChild(p);
+
+        var meta = document.createTextNode('\u2014 ' + item.dataset.tweetName + ' (@' + item.dataset.tweetUsername + ') ');
+        bq.appendChild(meta);
+
+        var a = document.createElement('a');
+        a.href = item.dataset.tweetUrl;
+        a.textContent = item.dataset.tweetDate;
+        bq.appendChild(a);
+
+        item.innerHTML = '';
+        item.appendChild(bq);
+
+        if (typeof twttr !== 'undefined' && twttr.widgets) {
+            twttr.widgets.load(item);
+        }
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                renderTweet(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '200px' });
+
+    // 初期表示分（非hiddenのみ）をobserve
+    document.querySelectorAll('.campaign-tweet-item').forEach(function(item) {
+        if (item.classList.contains('campaign-hidden')) return;
+        observer.observe(item);
+    });
+
+    // 「もっと見る」ボタン：表示してからobserve
+    document.querySelectorAll('.campaign-more-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var section = document.getElementById(btn.dataset.target);
+            section.querySelectorAll('.campaign-hidden').forEach(function(el) {
+                el.classList.remove('campaign-hidden');
+                if (!el.dataset.rendered) observer.observe(el);
+            });
+            btn.remove();
+        });
+    });
+})();
+</script>
 
 <?php require __DIR__ . '/templates/footer.php'; ?>
