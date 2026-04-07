@@ -21,6 +21,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # /article/slug/ → article.php?slug=xxx
 RewriteRule ^article/([a-zA-Z0-9_-]+)/?$ article.php?slug=$1 [L,QSA]
 
+# /campaign/ → campaign.php
+RewriteRule ^campaign/?$ campaign.php [L,QSA]
+
 # /comment/post → comment-post.php
 RewriteRule ^comment/post/?$ comment-post.php [L,QSA]
 

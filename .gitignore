@@ -1,5 +1,6 @@
 data/comments.db
 data/pageviews.db
+data/cache/
 .DS_Store
 vendor/
 .claude/
