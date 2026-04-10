@@ -46,6 +46,9 @@
       gtag('config', 'G-HZE63FN81K');
     </script>
 
+    <!-- WebSite構造化データ（Googleサイト名表示用） -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"オリパ速報","url":"https://oripanews.com/"}</script>
+
 <?php if (!empty($jsonLd)): ?>
 <?php foreach ($jsonLd as $ld): ?>
     <script type="application/ld+json"><?= json_encode($ld, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) ?></script>
