@@ -8,7 +8,7 @@ company: "KARAKURIオリパ"
 slug: "karakuri-oripa-70man-loss"
 published_at: "2026-04-13T10:00:00+09:00"
 hot: false
-thumbnail_url: ""
+thumbnail_url: "https://fzpzduyetponyeabtonl.supabase.co/storage/v1/object/public/images/headerImage_1761614134938.jpeg"
 ---
 
 KARAKURIオリパでオリパを引きまくったユーザーが、わずか2回のプレイで合計70万円以上を失ったと報告し注目を集めている。
