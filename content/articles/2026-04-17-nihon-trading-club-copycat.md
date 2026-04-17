@@ -13,6 +13,10 @@ thumbnail_url: "https://jtc.center/ogp-image.jpg"
 
 老舗オンラインオリパ「日本トレカセンター」を模倣したとみられるサイト「日本トレーディングクラブ」が出現していると、同業のオリパサービス「RAM oripa」運営者ホゲくん氏がX上で注意喚起を行った。
 
+<div class="section-label">■ 発端となったX投稿</div>
+
+<blockquote class="twitter-tweet"><a href="https://x.com/7hogeeeeta7/status/2045007022228410629"></a></blockquote>
+
 <div class="section-label">■ 注意喚起の内容</div>
 
 ## ポイントまとめ
@@ -29,10 +33,6 @@ thumbnail_url: "https://jtc.center/ogp-image.jpg"
 今回問題とされている「日本トレーディングクラブ」の詳細（ドメインや運営者情報）はツイート上で明かされておらず、拡散による二次被害を避けるためにも、興味本位でアクセスしないことが推奨される。
 
 オンラインオリパを利用する際は、**公式サイトURL・公式Xアカウントを事前にブックマーク**しておき、検索経由でアクセスしないのが基本的な自衛策になる。
-
-<div class="section-label">■ 発端となったX投稿</div>
-
-<blockquote class="twitter-tweet"><a href="https://x.com/7hogeeeeta7/status/2045007022228410629"></a></blockquote>
 
 <div class="section-label section-label-reaction">＜みんなの反応＞</div>
 
