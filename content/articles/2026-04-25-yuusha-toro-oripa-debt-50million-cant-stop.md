@@ -6,7 +6,7 @@ source_url: "https://x.com/toro_YouTube/status/2047575337849262313"
 source_name: "X(@toro_YouTube)"
 company: "勇者トロ"
 slug: "yuusha-toro-oripa-debt-50million-cant-stop"
-published_at: "2026-04-25T11:00:00+09:00"
+published_at: "2026-04-25T06:30:00+09:00"
 hot: false
 thumbnail_url: "https://i.ytimg.com/vi/HMZGRP77FWU/maxresdefault.jpg"
 ---
