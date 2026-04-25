@@ -280,7 +280,10 @@
             "reply_text": "▼ 詳細はこちら\nhttps://oripanews.com/article/grim-shop-fullmira-missing-suspicion/",
             "thumbnail_url": "https://pbs.twimg.com/media/HFl_4M4akAIdKbX.png",
             "scheduled_at": "2026-04-25T12:00:00+09:00",
-            "status": "pending"
+            "status": "posted",
+            "tweet_id": "2047873247920943223",
+            "reply_id": "2047873249565090261",
+            "posted_at": "2026-04-25T12:00:01+09:00"
         },
         {
             "slug": "yuusha-toro-oripa-debt-50million-cant-stop",
@@ -288,6 +291,33 @@
             "reply_text": "▼ 詳細はこちら\nhttps://oripanews.com/article/yuusha-toro-oripa-debt-50million-cant-stop/",
             "thumbnail_url": "https://i.ytimg.com/vi/HMZGRP77FWU/maxresdefault.jpg",
             "scheduled_at": "2026-04-25T17:00:00+09:00",
+            "status": "posted",
+            "tweet_id": "2047948736538742828",
+            "reply_id": "2047948738631737511",
+            "posted_at": "2026-04-25T17:00:01+09:00"
+        },
+        {
+            "slug": "laketown-toysrus-line-cut-witness",
+            "text": "【炎上】レイクタウンのトイザらスで、店員「絶対に走らないで！」と言った直後にベトナム人客が鬼ダッシュで日本人を追い抜き先頭奪取\n\nルール守った日本人が後ろっていう救いのない構図…投稿は数時間で1Mビュー突破\n\n#ポケカ #トイザらス",
+            "reply_text": "▼ 詳細はこちら\nhttps://oripanews.com/article/laketown-toysrus-line-cut-witness/",
+            "thumbnail_url": "https://www.pokemon-card.com/assets/images/og.png",
+            "scheduled_at": "2026-04-25T23:00:00+09:00",
+            "status": "pending"
+        },
+        {
+            "slug": "vietnam-pokesen-illegal-purchase-arrest",
+            "text": "【悲報】ポケセンオンラインを複垢でハックしてポケカ大量購入、東京・豊島区のSIM販売会社社長ら、ベトナム国籍2名を警視庁が逮捕\n\n押収カードは1万5440枚、転売益は確認分だけで約424万円。1人1BOX制限の意味なくなってた原因これか…\n\n#ポケカ",
+            "reply_text": "▼ 詳細はこちら\nhttps://oripanews.com/article/vietnam-pokesen-illegal-purchase-arrest/",
+            "thumbnail_url": "https://www.pokemon-card.com/assets/images/og.png",
+            "scheduled_at": "2026-04-26T10:00:00+09:00",
+            "status": "pending"
+        },
+        {
+            "slug": "china-sns-pokeca-resell-vietnam",
+            "text": "【炎上】中国SNSでポケカ転売してた「中国人転売屋」、実は東京在住ベトナム人だった件で中国人界隈もザワつくｗｗｗ\n\n2月の逮捕事件と完全に繋がる流れ。国籍より「組織的買い占め」の構造を潰さん限り買えん人は永遠に買えんままやで\n\n#ポケカ #オリパ",
+            "reply_text": "▼ 詳細はこちら\nhttps://oripanews.com/article/china-sns-pokeca-resell-vietnam/",
+            "thumbnail_url": "https://www.pokemon-card.com/assets/images/og.png",
+            "scheduled_at": "2026-04-26T15:00:00+09:00",
             "status": "pending"
         }
     ]
