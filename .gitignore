@@ -5,6 +5,7 @@ data/campaign/
 data/campaign-refresh.log
 .DS_Store
 vendor/
-.claude/
+.claude/*
+!.claude/skills/
 .env
 config/google-credentials.json
